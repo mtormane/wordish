@@ -33,9 +33,6 @@ MANIFEST
 *.manifest
 *.spec
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
 
 # Unit test / coverage reports
 htmlcov/
@@ -127,3 +124,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# logging
+log_file.txt
+wordish/log_file.txt
+tests/log_file.txt
+
+# IDE
+.idea/
