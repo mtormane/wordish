@@ -5,13 +5,11 @@ import pytest
 from wordish.json_parser import JsonParser
 
 
-
 @pytest.fixture
 def json_parser_instance():
     json_parser = JsonParser()
     json_parser.data = {"services": [{"title": "ECU Reset", "id": "11"}]}
     return json_parser
-
 
 
 @pytest.fixture

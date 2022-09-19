@@ -15,7 +15,6 @@ def parse_arguments():
     return parser.parse_args()
 
 
-
 def load_data(file_path):
 
     logger.info("Loading database from: %s", file_path)

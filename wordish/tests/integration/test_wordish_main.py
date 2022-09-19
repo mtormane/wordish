@@ -8,8 +8,7 @@ from wordish.main import main
 
 def test_main(file_path):
     with patch.object(sys, "argv", ["main", "--file_path", file_path]):
-            main()
-
+        main()
 
 
 def test_main_exception(bad_file_path):
