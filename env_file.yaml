@@ -26,6 +26,7 @@ dependencies:
   - pylint=2.14.5=py310haa95532_0
   - pyparsing=3.0.9=py310haa95532_0
   - pytest=7.1.2=py310haa95532_0
+  - pytest-cov=3.0.0
   - python=3.10.4=hbb2ffb3_0
   - pyyaml=6.0=py310h2bbff1b_0
   - setuptools=63.4.1=py310haa95532_0
