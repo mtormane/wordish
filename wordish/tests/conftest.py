@@ -2,14 +2,14 @@ import os
 import pytest
 
 
-from wordish.json_parser import JsonParser
+from wordish.text_parser import TextParser
 
 
 @pytest.fixture
 def json_parser_instance():
-    json_parser = JsonParser()
-    json_parser.data = {"services": [{"title": "ECU Reset", "id": "11"}]}
-    return json_parser
+    text_parser = TextParser()
+    text_parser.data = {"services": [{"title": "ECU Reset", "id": "11"}]}
+    return text_parser
 
 
 @pytest.fixture

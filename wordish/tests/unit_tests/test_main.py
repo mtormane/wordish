@@ -2,7 +2,7 @@ from unittest.mock import patch
 
 import pytest
 
-from wordish.json_parser import JsonParser
+from wordish.text_parser import TextParser
 from wordish.main import load_data
 from wordish.main import parse_arguments, ArgumentParser
 from wordish.main import main, init
@@ -29,13 +29,14 @@ def test_parse_arguments(mock_parse_args, mock_add_argument):
 
 
 def test_load_data_success():
-    with patch.object(JsonParser, "load_file") as mock_load_file:
+    with patch.object(TextParser, "load_file") as mock_load_file:
         load_data("file_path.json")
         mock_load_file.assert_called_with("file_path.json")
 
 
 def test_load_data_exception():
-    with patch.object(JsonParser, "load_file", side_effect=Exception('MockedError')) as mock_load_file:
+    with patch.object(TextParser, "load_file",
+                      side_effect=Exception('MockedError')) as mock_load_file:
         with pytest.raises(Exception) as excinfo:
             load_data("something")
             mock_load_file.assert_called_with("something")

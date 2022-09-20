@@ -2,9 +2,9 @@ from argparse import ArgumentParser
 
 import logging
 
-from wordish.json_parser import JsonParser
+from wordish.text_parser import TextParser
 
-file_parser = JsonParser()
+file_parser = TextParser()
 
 logger = logging.getLogger(__name__)
 
