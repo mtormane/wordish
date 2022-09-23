@@ -13,7 +13,8 @@ class MockArgs:
 
 
 def test_main():
-    with patch("wordish.main.parse_arguments", return_value=MockArgs) as mock_parse_arguments:
+    with patch("wordish.main.parse_arguments", return_value=MockArgs) \
+            as mock_parse_arguments:
         with patch("wordish.main.load_data") as mock_load_data:
             main()
             mock_parse_arguments.assert_called_once()
