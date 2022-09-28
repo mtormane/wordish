@@ -1,6 +1,7 @@
+import logging
+
 from argparse import ArgumentParser
 
-import logging
 
 from wordish.text_parser import TextParser
 
