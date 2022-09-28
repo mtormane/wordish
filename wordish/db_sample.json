@@ -5,3 +5,5 @@
       "language": "engelska"
 }
 }
+
+isinstance(a, dict)
