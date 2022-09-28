@@ -4,6 +4,8 @@ import logging
 
 from wordish.text_parser import TextParser
 
+from wordish.word_listing import create_word_list
+
 file_parser = TextParser()
 
 logger = logging.getLogger(__name__)
@@ -26,6 +28,7 @@ def main():
     logger.info("Wordish...")
     args = parse_arguments()
     load_data(args.file_path)
+    word_list = create_word_list(file_parser.data)
 
 
 def init():
