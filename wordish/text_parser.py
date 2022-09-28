@@ -1,6 +1,7 @@
 import logging
 
 
+
 logger = logging.getLogger(__name__)
 
 
@@ -14,10 +15,12 @@ class TextParser:
         try:
             with open(file_path, "r", encoding="utf-8") as my_file:
                 self.data = my_file.read()
-                self.data.decode("utf-8")
+
             logger.info("Following data is found in the text file")
             print(self.data)
 
-        except ValueError as err:
+
+
+        except UnicodeDecodeError as err:
             logger.exception(err)
             raise err
