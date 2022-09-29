@@ -1,30 +1,25 @@
 import matplotlib.pyplot as plt
 
-lista=["hej", "då", "elak", "snäll", "varför", \
-                              "bibliotek", "åsna", "penna"]
-ny_lista=[]
+en_lista = ["hej", "då", "elak", "snäll", "varför", "bibliotek", "åsna", "penna"]
+
+ny_lista = []
+
+
 def count_word_length(lista):
-    for ord in lista:
-        length=len(ord)
+    for orden in lista:
+        length = len(orden)
         ny_lista.append(length)
     return ny_lista
 
 
+def draw_histogram(values):
+    x_value = values
 
-
-def draw_histogram(värden):
-    x = värden
-
-    plt.hist(x)
+    plt.hist(x_value)
 
     plt.xlabel("age")
     plt.ylabel("count")
     plt.title("Population Age Count")
 
     plt.show()
-
-#draw_histogram(count_word_length(lista))
-
-
-
 
