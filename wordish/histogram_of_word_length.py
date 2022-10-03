@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 
-en_lista = ["hej", "då", "elak", "snäll", "varför", "bibliotek", "åsna", "penna"]
+from word_counting import calculate_list_length
 
 ny_lista = []
 
@@ -9,17 +9,17 @@ def count_word_length(lista):
     for orden in lista:
         length = len(orden)
         ny_lista.append(length)
+
     return ny_lista
 
 
 def draw_histogram(values):
     x_value = values
 
-    plt.hist(x_value)
+    plt.hist(x_value, 20, ec="red")
 
-    plt.xlabel("age")
-    plt.ylabel("count")
-    plt.title("Population Age Count")
+    plt.xlabel("Word Length")
+    plt.ylabel("Count")
+    plt.title("Word length Distribution")
 
     plt.show()
-

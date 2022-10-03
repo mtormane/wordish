@@ -4,9 +4,12 @@ import pytest
 
 
 from wordish.main import load_data, TextParser
+
 from wordish.main import parse_arguments, ArgumentParser
+
 from wordish.main import main, init
 
+from wordish.main import draw_histogram, count_word_length
 
 class MockArgs:
     file_path = "path/to/file.ext"
@@ -25,11 +28,17 @@ def test_main():
                     as mock_create_word_list:
                 with patch("wordish.main.calculate_list_length", return_value=1) \
                         as mock_calculate_list_length:
-                    main()
-                    mock_parse_arguments.assert_called_once()
-                    mock_load_data.assert_called_with("path/to/file.ext")
-                    mock_create_word_list.assert_called_with("hej")
-                    mock_calculate_list_length.assert_called_with(["hej"])
+                    with patch("wordish.main.count_word_length", return_value=[3]) \
+                            as mock_count_word_length:
+                        with patch("wordish.main.draw_histogram") \
+                                as mock_draw_histogram:
+                            main()
+                            mock_parse_arguments.assert_called_once()
+                            mock_load_data.assert_called_with("path/to/file.ext")
+                            mock_create_word_list.assert_called_with("hej")
+                            mock_calculate_list_length.assert_called_with(["hej"])
+                            mock_count_word_length.assert_called_with(["hej"])
+                            mock_draw_histogram.assert_called_with([3])
 
 
 @patch.object(ArgumentParser, "add_argument")
