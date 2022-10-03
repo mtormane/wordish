@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
-
-from word_counting import calculate_list_length
+from numpy import arange
 
 ny_lista = []
 
@@ -13,13 +12,23 @@ def count_word_length(lista):
     return ny_lista
 
 
-def draw_histogram(values):
+def longest_word(lista):
+    longura = 0
+    for orden in lista:
+        length = len(orden)
+        if length > longura:
+            longura = length
+    return longura
+
+
+def draw_histogram(values, word_length, word_amount):
     x_value = values
 
-    plt.hist(x_value, 20, ec="red")
+    plt.hist(x_value, word_length, ec="red")
 
+    plt.xticks(arange(1, word_length + 1, 1))
     plt.xlabel("Word Length")
     plt.ylabel("Count")
-    plt.title("Word length Distribution")
+    plt.title(f"Word length Distribution of {word_amount} words")
 
     plt.show()

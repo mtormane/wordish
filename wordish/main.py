@@ -8,7 +8,7 @@ from wordish.word_listing import create_word_list
 
 from wordish.word_counting import calculate_list_length
 
-from wordish.histogram_of_word_length import count_word_length, draw_histogram
+from wordish.histogram_of_word_length import count_word_length, draw_histogram, longest_word
 
 file_parser = TextParser()
 
@@ -34,9 +34,9 @@ def main():
     args = parse_arguments()
     text_str = load_data(args.file_path)
     word_list = create_word_list(text_str)
-    amount_of_words = calculate_list_length(word_list)
+    word_amount = calculate_list_length(word_list)
     length_of_words = count_word_length(word_list)
-    draw_histogram(length_of_words)
+    draw_histogram(length_of_words, longest_word(word_list), word_amount)
 
 
 def init():
