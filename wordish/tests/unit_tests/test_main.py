@@ -1,7 +1,6 @@
-from unittest.mock import patch, PropertyMock
+from unittest.mock import patch
 
 import pytest
-
 
 from wordish.main import load_data, TextParser
 
@@ -9,7 +8,6 @@ from wordish.main import parse_arguments, ArgumentParser
 
 from wordish.main import main, init
 
-from wordish.main import draw_histogram, count_word_length
 
 class MockArgs:
     file_path = "path/to/file.ext"
@@ -38,7 +36,7 @@ def test_main():
                             mock_create_word_list.assert_called_with("hej")
                             mock_calculate_list_length.assert_called_with(["hej"])
                             mock_count_word_length.assert_called_with(["hej"])
-                            mock_draw_histogram.assert_called_with([3])
+                            mock_draw_histogram.assert_called_with([3], 3, 1)
 
 
 @patch.object(ArgumentParser, "add_argument")
