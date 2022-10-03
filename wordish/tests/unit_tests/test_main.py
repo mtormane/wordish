@@ -2,9 +2,10 @@ from unittest.mock import patch
 
 import pytest
 
-from wordish.text_parser import TextParser
-from wordish.main import load_data
+from wordish.main import load_data, TextParser
+
 from wordish.main import parse_arguments, ArgumentParser
+
 from wordish.main import main, init
 
 
@@ -12,13 +13,30 @@ class MockArgs:
     file_path = "path/to/file.ext"
 
 
+class MockStr:
+    text_str = "hej"
+
+
 def test_main():
     with patch("wordish.main.parse_arguments", return_value=MockArgs) \
             as mock_parse_arguments:
-        with patch("wordish.main.load_data") as mock_load_data:
-            main()
-            mock_parse_arguments.assert_called_once()
-            mock_load_data.assert_called_with("path/to/file.ext")
+        with patch("wordish.main.load_data", return_value="hej") \
+                as mock_load_data:
+            with patch("wordish.main.create_word_list", return_value=["hej"]) \
+                    as mock_create_word_list:
+                with patch("wordish.main.calculate_list_length", return_value=1) \
+                        as mock_calculate_list_length:
+                    with patch("wordish.main.count_word_length", return_value=[3]) \
+                            as mock_count_word_length:
+                        with patch("wordish.main.draw_histogram") \
+                                as mock_draw_histogram:
+                            main()
+                            mock_parse_arguments.assert_called_once()
+                            mock_load_data.assert_called_with("path/to/file.ext")
+                            mock_create_word_list.assert_called_with("hej")
+                            mock_calculate_list_length.assert_called_with(["hej"])
+                            mock_count_word_length.assert_called_with(["hej"])
+                            mock_draw_histogram.assert_called_with([3], 3, 1)
 
 
 @patch.object(ArgumentParser, "add_argument")
