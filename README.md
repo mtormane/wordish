@@ -13,13 +13,19 @@ Activate the environment using the command:
 ````commandline
 conda activate wordish
 ````
-Then, test the environmonet by running the main module using:
+Then, run the environment by typing:
 ```python
-python -m wordish.main --file items.json
+python -m wordish.main --file wordish\text_sample.txt
 ```
+NB! Make sure to write the correct path!
 In your favorite IDE choose the newly created python environment.
 
-## Checking the code
+
+
+
+## Code development
+
+### For further development the following methods are practical
 In ```tasks.py``` different utility function are defined for code style, formatting, syntax and tests.
 
 ### Pycodestyle
@@ -54,3 +60,4 @@ In terminal window run integration tests using:
 invoke unit-tests
 ```
 Coverage should aim for 100%.
+
