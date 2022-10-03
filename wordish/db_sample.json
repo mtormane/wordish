@@ -1,0 +1,9 @@
+{
+  "01": {
+      "source": "C:\\Users\\ldosguar\\Repos\\wordish\\wordish\\text_sample.txt",
+      "title": "test",
+      "language": "engelska"
+}
+}
+
+isinstance(a, dict)
