@@ -12,20 +12,25 @@ def test_count_word_length():
 
 
 @patch("matplotlib.pyplot.title")
-@patch("matplotlib.pyplot.show")
 @patch("matplotlib.pyplot.ylabel")
 @patch("matplotlib.pyplot.xlabel")
-@patch("matplotlib.pyplot.hist")
-@patch("matplotlib.pyplot.xticks")
-def test_draw_histogram(mock_hist, mock_xlabel, mock_ylabel, # pylint: disable=R0913
-                        mock_show, mock_title, mock_xticks):
+@patch("matplotlib.pyplot.show")
+def test_draw_histogram(mock_ylabel, mock_xlabel, mock_title, mock_show):
     draw_histogram([3, 2, 4, 5, 6, 9, 4, 5], 9, 8)
-    mock_xticks.assert_called_once()
-    mock_hist.assert_called_once()
     mock_xlabel.assert_called_once()
     mock_ylabel.assert_called_once()
-    mock_show.assert_called_once()
     mock_title.assert_called_once()
+    mock_show.assert_called_once()
+
+
+@patch("matplotlib.pyplot.hist")
+@patch("matplotlib.pyplot.show")
+@patch("matplotlib.pyplot.xticks")
+def test_draw_histogram_2(mock_hist, mock_show, mock_xticks):
+    draw_histogram([3, 2, 4, 5, 6, 9, 4, 5], 9, 8)
+    mock_show.assert_called_once()
+    mock_xticks.assert_called_once()
+    mock_hist.assert_called_once()
 
 
 def test_longest_word():
