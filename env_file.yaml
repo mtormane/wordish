@@ -15,7 +15,9 @@ dependencies:
   - isort=5.9.3=pyhd3eb1b0_0
   - lazy-object-proxy=1.6.0=py310h2bbff1b_0
   - libffi=3.4.2=hd77b12b_4
+  - matplotlib=3.5.2
   - mccabe=0.7.0=pyhd3eb1b0_0
+  - numpy=1.23.1
   - openssl=1.1.1q=h2bbff1b_0
   - packaging=21.3=pyhd3eb1b0_0
   - pip=22.1.2=py310haa95532_0
