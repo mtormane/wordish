@@ -1,24 +1,24 @@
 import matplotlib.pyplot as plt
 from numpy import arange
 
-ny_lista = []
+new_list_with_counted_words = []
 
 
-def count_word_length(lista):
-    for orden in lista:
-        length = len(orden)
-        ny_lista.append(length)
+def count_word_length(the_list):
+    for the_words in the_list:
+        length = len(the_words)
+        new_list_with_counted_words.append(length)
 
-    return ny_lista
+    return new_list_with_counted_words
 
 
-def longest_word(lista):
-    longura = 0
-    for orden in lista:
-        length = len(orden)
-        if length > longura:
-            longura = length
-    return longura
+def longest_word(the_list_2):
+    longest_word_in_list = 0
+    for the_words_2 in the_list_2:
+        length = len(the_words_2)
+        if length > longest_word_in_list:
+            longest_word_in_list = length
+    return longest_word_in_list
 
 
 def draw_histogram(values, word_length, word_amount):
